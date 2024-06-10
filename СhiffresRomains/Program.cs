@@ -6,7 +6,7 @@ namespace СhiffresRomains
     {
         static void Main(string[] args)
         {
-            string [] matchArrayRom = new string [7] { "I", "V", "X", "L", "C", "D", "M" };
+            char[] matchArrayRom = new char [7] { 'I', 'V', 'X', 'L', 'C', 'D', 'M' };
             int[] matchArrayInd = new int[7] { 1, 5, 10, 50, 100, 500, 1000 };
             Console.Write("Enter the Roman numeral using I , V, X, L, C, D, M :");
             string enteredString = Console.ReadLine();
@@ -16,7 +16,9 @@ namespace СhiffresRomains
             
             for (int i = 0; i < enteredStringLenght; i++)
             {
-                string leftChar = enteredString.Substring(i, 1);
+                //string leftChar = enteredString.Substring(i, 1);
+                char leftChar = enteredString[i];
+
                 int index = Array.IndexOf(matchArrayRom, leftChar);
                 valuesInNumbers[i] = matchArrayInd[index];
             }
