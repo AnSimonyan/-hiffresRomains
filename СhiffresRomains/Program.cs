@@ -13,12 +13,15 @@ namespace СhiffresRomains
             int enteredStringLenght = enteredString.Length;
             int[] matchArrayIndEnterd = new int[enteredStringLenght];
             int[] valuesInNumbers = new int[enteredStringLenght];
+
+            //Getting an array valuesInNumbers with matches numbers of the entered data 
             for (int i = 0; i < enteredStringLenght; i++)
             {
                 char leftChar = enteredString[i];
                 int index = Array.IndexOf(matchArrayRom, leftChar);
                 valuesInNumbers[i] = matchArrayInd[index];
             }
+            //Applying the formula valuesInNumbers[i+1]-valuesInNumbers[i] if valuesInNumbers[i+1]>valuesInNumbers[i]
             int[] valuesForAdding = new int[enteredStringLenght];
             for (int i = 0; i < enteredStringLenght; i++)
             {
@@ -40,18 +43,21 @@ namespace СhiffresRomains
                     valuesForAdding[i] = valuesInNumbers[i];
                 }
             }
+            //Сhecking the correctness of the array valuesForAdding
             bool isTheResultatsCorrect = veifierResultatsAreCorrect(valuesForAdding);
-            Console.Write(isTheResultatsCorrect);
-            int resultatInd = 0;
+            Console.Write(isTheResultatsCorrect + "\n");
+           
+            //Results
+            int resultsInd = 0;
             for (int i = 0; i < enteredStringLenght; i++)
             {
                 Console.Write(valuesForAdding[i] + "\n");
-                resultatInd = resultatInd + valuesForAdding[i];
+                resultsInd = resultsInd + valuesForAdding[i];
             }
             if (isTheResultatsCorrect)
             {
                 Console.Write("Result is correct and equal: ");
-                Console.WriteLine(resultatInd);
+                Console.WriteLine(resultsInd);
             }
             else
             {
@@ -72,9 +78,9 @@ namespace СhiffresRomains
                     {
                         verificationResultat = false;
                     }
-                    else if (courrantValue == 0 || arrayForVerification[j] == 0) 
-                    { 
-                        ///
+                    else if (courrantValue == 0 || arrayForVerification[j] == 0)
+                    {
+                        continue;
                     }
                     else if (courrantValue < arrayForVerification[j])
                     {
@@ -87,10 +93,10 @@ namespace СhiffresRomains
                             verificationResultat = false;
                         }
                     }
-                    else if (courrantValue > arrayForVerification[j] )
+                    else if (courrantValue > arrayForVerification[j])
 
                     {
-                        if (courrantValue % 4 == 0 || courrantValue % 9 == 0 && gettingNumbersOfcharacters(courrantValue)== gettingNumbersOfcharacters(arrayForVerification[j]) )
+                        if (courrantValue % 4 == 0 || courrantValue % 9 == 0 && gettingNumbersOfcharacters(courrantValue) == gettingNumbersOfcharacters(arrayForVerification[j]))
                         {
                             verificationResultat = false;
                         }
@@ -122,7 +128,7 @@ namespace СhiffresRomains
             }
             return verificationResultat;
         }
-        static int  gettingNumbersOfcharacters(int number1) 
+        static int gettingNumbersOfcharacters(int number1)
 
         {
             int resultOfDivision = number1;
