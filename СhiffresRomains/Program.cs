@@ -96,11 +96,14 @@ namespace СhiffresRomains
                     else if (courrantValue > arrayForVerification[j])
 
                     {
-                        if (courrantValue % 4 == 0 || courrantValue % 9 == 0 && gettingNumbersOfcharacters(courrantValue) == gettingNumbersOfcharacters(arrayForVerification[j]))
+                        if ((courrantValue % 4 == 0 || courrantValue % 9 == 0) && gettingNumbersOfcharacters(courrantValue) == gettingNumbersOfcharacters(arrayForVerification[j]))
                         {
                             verificationResultat = false;
                         }
-
+                        else if ((arrayForVerification[j] % 4 == 0 || arrayForVerification[j] % 9 == 0) && gettingNumbersOfcharacters(courrantValue) == gettingNumbersOfcharacters(arrayForVerification[j]))
+                        {
+                            verificationResultat = false;
+                        }
                     }
                     else if (courrantValue == arrayForVerification[j] && (courrantValue == 5 || courrantValue == 50 || courrantValue == 500))
 
